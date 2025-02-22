@@ -1,7 +1,7 @@
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies"
 import usePopularMovies from "../hooks/usePopularMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
-import useTopRated from "../hooks/usetopRated";
+import useTopRated from "../hooks/useTopRated";
 import PrimaryContainer from "./primaryContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import { useSelector } from "react-redux";
