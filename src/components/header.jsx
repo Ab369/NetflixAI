@@ -45,14 +45,14 @@ const Header=()=>{
   }
 
   return(
-    <div className='flex fixed z-10 w-full justify-between p-4 bg-gradient-to-b from-gray-900 text-white shadow-lg'>
+    <div className='flex fixed z-50 w-full justify-between p-4 bg-gradient-to-b from-gray-900 text-white shadow-lg'>
         <img src={logo} className='w-32'></img>
         <div className='flex items-center gap-2'>
             {gptsearch&&<select className='bg-black' onChange={changeGPTLanguage}>
               {supported_languages.map((language)=><option value={language.value}>{language.name}</option>
               )}
             </select>}
-            <button className='p-2 bg-green-600' onClick={toggleGPTsearch}>{gptsearch?'Homepage':'GPT Search'}</button>
+            <button className='p-2 bg-green-600 z-10' onClick={toggleGPTsearch}>{gptsearch?'Homepage':'GPT Search'}</button>
             <img src={currentUser?.profilePic} className='w-8'></img>
             <p>{currentUser?.displayName}</p>
             <button onClick={handleSignOut}>Logout</button>
