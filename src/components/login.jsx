@@ -2,6 +2,8 @@ import { useRef, useState } from 'react'
 import logo from '../assets/images/logo.png'
 import validate from '../utils/validate'
 import { useNavigate } from 'react-router'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import auth from '../utils/firebase'
 
 const Login=()=>{
     const navigate=useNavigate()
@@ -11,7 +13,22 @@ const Login=()=>{
 
     function handleclick(){
         const message=validate(email.current.value,password.current.value);
-         setShowMessge(message)
+        setShowMessge(message)
+        if(message)return;
+
+        signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            console.log(user)
+            navigate('/browse')
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setShowMessge(errorMessage)
+        });
+
     }
 
     return(
